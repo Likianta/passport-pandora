@@ -1,0 +1,93 @@
+package com.likianta.passportpandora.beans;
+
+import android.view.View;
+
+import com.likianta.passportpandora.utils.DpToPxTool;
+import com.orhanobut.logger.Logger;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/3 0003.
+ */
+public class Card {
+    
+    // REFERENCE: 2018-05-05
+    // https://blog.csdn.net/singwhatiwanna/article/details/17841165
+    
+    private float x;
+    private float y;
+    private float width;
+    private float height;
+    
+    public Card(View view) {
+        /* NOTICE: 2018-05-04
+         * 该方法只能获得原始宽高，即如果布局在最初创建时view的宽度为300px，
+         * 则无论对它使用补间动画还是属性动画，最终获得的始终都是300px；*/
+        int[] positions = new int[2];
+//        view.getLocationInWindow(positions);
+        view.getLocationOnScreen(positions);
+        
+        this.x = positions[0];
+        this.y = positions[1];
+        
+        this.width = view.getWidth();
+        this.height = view.getHeight();
+    }
+    
+    public Card(int x, int y, int width, int height) {
+        this.x = DpToPxTool.dip2px(x);
+        this.y = DpToPxTool.dip2px(y);
+        
+        this.width = DpToPxTool.dip2px(width);
+        this.height = DpToPxTool.dip2px(height);
+        
+//        Logger.d("(17-4812) >> 960px >> this.width = " + this.width);
+    }
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // Getter and Setter
+    
+    public float getCenterX() {
+        return this.x + this.width / 2;
+    }
+    
+    public float getCenterY() {
+        return this.y + this.height / 2;
+    }
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    
+    public float getX() {
+        return x;
+    }
+    
+    public void setX(float x) {
+        this.x = x;
+    }
+    
+    public float getY() {
+        return y;
+    }
+    
+    public void setY(float y) {
+        this.y = y;
+    }
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    
+    public float getWidth() {
+        return this.width;
+    }
+    
+    public void setWidth(int width) {
+        this.width = width;
+    }
+    
+    public float getHeight() {
+        return height;
+    }
+    
+    public void setHeight(float height) {
+        this.height = height;
+    }
+    
+}

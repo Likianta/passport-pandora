@@ -1,0 +1,100 @@
+package com.likianta.passportpandora.beans;
+
+import android.content.Context;
+import android.view.View;
+
+import com.likianta.passportpandora.utils.AnimatorUtils;
+import com.likianta.passportpandora.utils.DpToPxTool;
+import com.orhanobut.logger.Logger;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/3 0003.
+ */
+public class Card {
+    
+    // REFERENCE: 2018-05-05
+    // https://blog.csdn.net/singwhatiwanna/article/details/17841165
+    
+    private View view;
+    private float centerX;
+    private float centerY;
+    
+    private int endWidth;
+    private int endHeight;
+    
+    public Card(View view) {
+        /* NOTICE: 2018-05-04
+         * 该方法只能获得原始宽高，即如果布局在最初创建时view的宽度为300px，
+         * 则无论对它使用补间动画还是属性动画，最终获得的始终都是300px；*/
+        this.view = view;
+        
+        
+        int[] positions = new int[2];
+        view.getLocationInWindow(positions);
+    
+        centerX = positions[0] + view.getWidth() / 2;
+        centerY = positions[1] + view.getHeight() / 2;
+    }
+    
+    public Card(int x, int y, int width, int height) {
+        this.centerX = DpToPxTool.dip2px(x + width / 2);
+        this.centerY = DpToPxTool.dip2px(y + height / 2);
+        
+        this.endWidth = width;
+        this.endHeight = height;
+    }
+    
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    // Getter and Setter
+    
+    public float getCenterX() {
+        /*this.view.getLocationInWindow(positions);
+        return positions[0] + getWidth() / 2;*/
+        return this.centerX;
+    }
+    
+    public void setCenterX(float centerX) {
+        this.centerX = centerX;
+    }
+    
+    public float getCenterY() {
+        /*this.view.getLocationInWindow(positions);
+        return positions[1] + getHeight() / 2;*/
+        return this.centerY;
+    }
+    
+    public void setCenterY(float centerY) {
+        this.centerY = centerY;
+    }
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    
+    public float getWidth() {
+        if (view == null) {
+            return this.endWidth;
+        }
+        return view.getLayoutParams().width;
+    }
+    
+    public void setWidth(int width) {
+        view.getLayoutParams().width = width;
+        view.requestLayout();
+    }
+    
+    public float getHeight() {
+        if (view == null) {
+            return this.endHeight;
+        }
+        return view.getLayoutParams().height;
+    }
+    
+    public void setHeight(int height) {
+        view.getLayoutParams().height = height;
+        view.requestLayout();
+    }
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // Card() >>
+    
+}

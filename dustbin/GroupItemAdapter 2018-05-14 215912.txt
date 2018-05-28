@@ -1,0 +1,75 @@
+package com.likianta.passportpandora.methods;
+
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.likianta.passportpandora.R;
+import com.likianta.passportpandora.beans.GroupItem;
+import com.orhanobut.logger.Logger;
+
+import java.util.List;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/1 0001.
+ */
+public class GroupItemAdapter extends RecyclerView.Adapter<GroupItemAdapter.ViewHolder> {
+    private List<GroupItem> groupItemList;
+    
+    public GroupItemAdapter(List<GroupItem> groupItemList) {
+        this.groupItemList = groupItemList;
+    }
+    
+    // ¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö
+    // Override methods
+    
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        return new ViewHolder(view);
+    }
+    
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.itemTitle.setText(groupItemList.get(position).getAccountTitle());
+        holder.itemUsername.setText(groupItemList.get(position).getUsername());
+    }
+    
+    @Override
+    public int getItemCount() {
+        return groupItemList.size();
+    }
+    
+    // ¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö
+    
+    public void addItem(int position, GroupItem item) {
+        groupItemList.add(position, item);
+        notifyItemInserted(position);
+        Logger.d("groupItemList.size() = " + groupItemList.size());
+    }
+    
+    /*public void removeItem(int position) {
+        groupItemList.remove(position);
+        notifyItemRemoved(position);
+    }*/
+    
+    // ¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö
+    
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView itemTitle;
+        TextView itemUsername;
+        TextView itemCopy;
+        
+        ViewHolder(View view) {
+            super(view);
+            itemTitle = view.findViewById(R.id.item_title);
+            itemUsername = view.findViewById(R.id.item_username);
+            itemCopy = view.findViewById(R.id.item_copy);
+        }
+    }
+    
+}

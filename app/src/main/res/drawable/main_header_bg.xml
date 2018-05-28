@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--TODO: use this layer-list instead of separated bg-->
+    <item>
+        <shape>
+            <size android:height="20dp"/>
+            <gradient
+                android:angle="270"
+                android:endColor="#0000"
+                android:startColor="@color/shadow_slight_20c000000" />
+        </shape>
+    </item>
+    <item android:bottom="10dp">
+    
+    </item>
+    
+</layer-list>

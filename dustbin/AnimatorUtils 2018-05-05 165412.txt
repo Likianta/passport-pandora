@@ -1,0 +1,202 @@
+package com.likianta.passportpandora.utils;
+
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.support.annotation.NonNull;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+
+import com.likianta.passportpandora.beans.Card;
+import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/3 0003.
+ */
+public class AnimatorUtils {
+    
+    /* NOTE: 2018-05-04
+     *
+     * # Animator工具介绍
+     *
+     * ## 自动计算属性并执行动画
+     *
+     * 1. 如果我们已知View的开始状态、结束状态（指x，y，width，height四个属性）
+     * 并且只需要执行位移和缩放动画
+     * 且缩放动画的中心为View的中心位置
+     * 那么我们可以用：
+     *     startAnimator(view,     new Card(this, 20, 40, 320, 280), 5000);
+     *                    our_view  target_view_properties            duration
+     *
+     * 2. 如果我们已知View的开始状态、中间的关键帧（多个）、结束状态
+     * 并且只需要执行位移和缩放动画
+     * 且缩放动画的中心始终为View的中心位置
+     * 那么我们可以用：
+     *     startAnimator(view, new Card[]{new Card(this, 0, 0, 360, 100),
+     *             new Card(this, 10, 20, 180, 140),
+     *             new Card(this, 20, 40, 360, 550)},
+     *             new int[]{10, 20});
+     *             notice_int[].length_must_equal_to_Card[].length-1,
+     *             if_not,this_function_will_return_false_and_do_nothing.
+     *
+     * ## 手动开始动画
+     *
+     * 如果我们需要执行透明度动画、旋转动画，甚至更多更复杂的动画，自动计算属性并不能完成这类需求；
+     * 我们需要这样做：
+     *
+     * 1. 获取AnimatorSet：
+     *     AnimatorSet set = new AnimatorUtils().getAnimatorSet(view, new Card(this, 20, 40,
+     *     320, 280));
+     * 该set将包含自动计算属性，接下来我们可以对这个set手动添加更多属性，并在最后执行动画：
+     *     new AnimatorUtils().startAnimator(set, duration);
+     *
+     * 2. 如果我们不希望执行位移和缩放动画，那么我们不需要使用到AnimatorUtils
+     * 即使如此，为了代码的美观性和一致性，AnimatorUtils仍然提供了最简易的获取方式：
+     *     public AnimatorSet getAnimatorSet() {
+     *         return new AnimatorSet();
+     *     }
+     *
+     */
+    
+    // This is custom properties
+    private String[] propertyNames = {"translationX", "translationY", "scaleX", "scaleY"};
+    private AnimatorSet animatorSet = new AnimatorSet();
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    
+    private static void startAnimator(AnimatorSet set, int duration) {
+        set.setDuration(duration);
+        set.start();
+    }
+    
+    public void startAnimator(View target, Card end, int duration) {
+        startAnimator(target, new Card(target), end, duration);
+    }
+    
+    public void startAnimator(View target, Card start, Card end, int duration) {
+        startAnimator(target, new Card[]{start, end}, duration, true);
+    }
+    
+    private void startAnimator(@NonNull View target, @NonNull Card[] cardFrames, int
+            duration, boolean isStartNow) {
+        
+        // ----------------------------------------------------------------
+        // Clear animation
+        
+        /* NOTICE: 2018-05-04
+         *
+         * 如果实际测试发现动画在第一次执行时没反应，或者动画始终不起作用（特别是一些比较大的view在执行动画时）
+         * 那么就先执行一下 clearAnimation，一般就能解决此问题
+         * 具体是什么触发原理还不太清楚，总之有些view不clear也能用（比如chevron），有的是不clear的话第一次会没反应（比如avatarBg
+         * ），有的是始终没反应（比如mask）
+         */
+        
+        target.clearAnimation();
+        Card targetCard = new Card(target);
+        
+        // ----------------------------------------------------------------
+        // Init animator related values
+        
+        /* NOTICE: 2018-05-04
+         * 1. 所有运动变化值都是相对值
+         * 2. 所有相对运动均是相对于original的运动
+         * 3. 从card获取到的x、y均是绝对坐标，因此我们要注意计算的位移的时候把坐标相减才是相对位移
+         * 4. scale默认即是以view的中心为pivot的
+         * 5. 因为scale的中心缩放的，因此我们的位移也要以中心坐标来计算
+         * 6. 也就是说我们必须用card.getCenterX()而不能用card.getX()
+         */
+        
+        float originalX = targetCard.getCenterX();
+        float originalY = targetCard.getCenterY();
+        float originalW = targetCard.getWidth();
+        float originalH = targetCard.getHeight();
+        
+        int length = cardFrames.length;
+        
+        // 迭变数列（初始化）
+        float[] iterativeX = new float[length];
+        float[] iterativeY = new float[length];
+        float[] iterativeW = new float[length];
+        float[] iterativeH = new float[length];
+        
+        // 迭变数列（赋值）
+        for (int i = 0; i < length; i++) {
+            
+            iterativeX[i] = cardFrames[i].getCenterX() - originalX;
+            iterativeY[i] = cardFrames[i].getCenterY() - originalY;
+            
+            iterativeW[i] = cardFrames[i].getWidth() / originalW;
+            iterativeH[i] = cardFrames[i].getHeight() / originalH;
+        }
+        
+        List<float[]> container = new ArrayList<>(4);
+        container.add(iterativeX);
+        container.add(iterativeY);
+        container.add(iterativeW);
+        container.add(iterativeH);
+        
+        // ----------------------------------------------------------------
+        // Calculate animators
+        /*ObjectAnimator[] animators = new ObjectAnimator[4];
+        
+        for (int i = 0; i < animators.length; i++) {
+            
+            animators[i] = ObjectAnimator.ofFloat(targetCard, propertyNames[i], container.get
+                    (i));
+        }
+        */
+        ObjectAnimator animator1 = ObjectAnimator.ofFloat(target, propertyNames[0], container
+                .get(0));
+        ObjectAnimator animator2 = ObjectAnimator.ofFloat(target, propertyNames[1], container
+                .get(1));
+        ObjectAnimator animator3 = ObjectAnimator.ofFloat(targetCard, propertyNames[2],
+                container.get(2));
+        ObjectAnimator animator4 = ObjectAnimator.ofFloat(targetCard, propertyNames[3],
+                container.get(3));
+        
+        
+        // ----------------------------------------------------------------
+        // Load animators into set
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(animator1)
+                .with(animator2)
+                .with(animator3)
+                .with(animator4);
+        
+        // ----------------------------------------------------------------
+        // Add some flavoring (smooth animation)
+        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        
+        
+        // ----------------------------------------------------------------
+        // Start now or just returns this set
+        if (isStartNow) {
+            startAnimator(animatorSet, duration);
+        } else {
+            this.animatorSet = animatorSet;
+        }
+    }
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    // Just want to get AnimatorSet
+    
+    public AnimatorSet getAnimatorSet() {
+        return this.animatorSet;
+    }
+    
+    public AnimatorSet getAnimatorSet(View view, Card target, int duration) {
+        startAnimator(view, new Card[]{new Card(view), target}, duration, false);
+        return this.animatorSet;
+    }
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // Custom interpolator (for smooth animations)
+    
+    
+    // □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+    // ViewWrapper
+    
+    
+}

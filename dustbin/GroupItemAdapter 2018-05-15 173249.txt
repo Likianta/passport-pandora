@@ -1,0 +1,104 @@
+package com.likianta.passportpandora.methods;
+
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.likianta.passportpandora.R;
+import com.likianta.passportpandora.beans.GroupItem;
+import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/1 0001.
+ */
+public class GroupItemAdapter extends RecyclerView.Adapter<GroupItemAdapter.ViewHolder> {
+    private List<GroupItem> groupItemList = new ArrayList<>();
+    
+    public GroupItemAdapter(List<GroupItem> groupItemList) {
+        
+        // 这里的具体流程为：
+        //
+        // 1. 创建适配器实例：GroupItemAdapter adapter = new GroupItemAdapter(itemList);
+        // 其中itemList是RealmList<>类型的数组
+        // 在Adapter构造函数（也就是现在位于的函数）中，参数itemList被从RealmList<>类型转换到了List<>泛型
+        // （因为RealmList<>继承于List<>，所以可以这样转换。打个比方，可以理解为从TextView转换到了View）
+        //
+        // 2. 然后这里有一个注意点，那就是不能用等号赋值，必须用`addAll()`
+        // 前者相当于引用RealmList<>，后者则相当于复制了一份新的ArrayList<>数组
+        //
+        // REFERENCE: 2018-05-14
+        // 使用Realm碰到This method is not supported by RealmR... - 简书
+        // https://www.jianshu.com/p/e645b8934356
+        //
+        // REFERENCE: 2018-05-15
+        // Realm 怎么与 RecyclerView 配合使用 - CSDN博客
+        // https://blog.csdn.net/Likianta/article/details/80319989
+        
+        // (Dropped)
+        // convert realmList to realm a type of List<T>
+        // tip: mRealmList.where().findAll() --> mRealmResults --> which already implements List<T>
+        // so that's just what you want
+        //
+        // (not the answer to this question) REFERENCE: 2018-05-14
+        // https://stackoverflow.com/questions/32593377/how-convert-realmlist-to-reamresult
+        
+        this.groupItemList.addAll(groupItemList);
+    }
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // Override methods
+    
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_item, parent, false);
+        return new ViewHolder(view);
+    }
+    
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.itemTitle.setText(groupItemList.get(position).getAccountTitle());
+        holder.itemUsername.setText(groupItemList.get(position).getUsername());
+    }
+    
+    @Override
+    public int getItemCount() {
+        return groupItemList.size();
+    }
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
+    public void addItem(int position, GroupItem item) {
+        groupItemList.add(position, item);
+        notifyItemInserted(position);
+        Logger.d("groupItemList.size() = " + groupItemList.size());
+    }
+    
+    /*public void removeItem(int position) {
+        groupItemList.remove(position);
+        notifyItemRemoved(position);
+    }*/
+    
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView itemTitle;
+        TextView itemUsername;
+        TextView itemCopy;
+        
+        ViewHolder(View view) {
+            super(view);
+            itemTitle = view.findViewById(R.id.item_title);
+            itemUsername = view.findViewById(R.id.item_username);
+            itemCopy = view.findViewById(R.id.item_copy);
+        }
+    }
+    
+}

@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="58dp"
+                android:height="58dp" />
+            <gradient
+                android:endColor="@color/transparent_0000"
+                android:gradientRadius="29dp"
+                android:startColor="@color/shadow_primary_35c000000"
+                android:type="radial" />
+        </shape>
+    </item>
+    <item
+        android:bottom="7dp"
+        android:left="3dp"
+        android:right="7dp"
+        android:top="3dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/btn_accent_ffffff" />
+        </shape>
+    </item>
+</layer-list>

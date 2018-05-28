@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>-->
+    
+    <!--How to Name Android Colors by Palettes-->
+    <!--https://blog.novatec-gmbh.de/name-android-colors-palettes/-->
+    
+    <color name="bg_primary_f2f2f2">#f2f2f2</color>
+    <color name="bg_primary_fafafa">#fafafa</color>
+    <color name="bg_accent_ffffff">#ffffff</color>
+    
+    <color name="text_activated_666666">#666666</color>
+    <color name="text_deactivated_999999">#999999</color>
+    <color name="text_divider_cccccc">#cccccc</color>
+    <color name="text_divider_f2f2f2">#f2f2f2</color>
+    <color name="text_heading_333333">#333333</color>
+    <color name="text_hint_cccccc">#cccccc</color>
+    <color name="text_light_ffffff">#ffffff</color>
+    <color name="text_link_666666">#666666</color>
+    <color name="text_primary_333333">#333333</color>
+    <color name="text_secondary_999999">#999999</color>
+    
+    <color name="btn_accent_ffffff">#ffffff</color>
+    <color name="btn_activated_text_333333">#333333</color>
+    <color name="btn_activated_text_ffffff">#ffffff</color>
+    <color name="btn_deactivated_7fd2d8d8">#7fd2d8d8</color>
+    <color name="btn_deactivated_b2999999">#b2999999</color>
+    <color name="btn_login_2f889a">#2f889a</color>
+    <color name="btn_login_pressed_246877">#246877</color>
+    <color name="btn_primary_text_ffffff">#ffffff</color>
+    <color name="btn_text_btn_169bd5">#169bd5</color>
+    
+    <color name="stroke_accent_797979">#797979</color>
+    <color name="stroke_btn_169bd5">#169bd5</color>
+    <color name="stroke_btn_ffffff">#ffffff</color>
+    <color name="stroke_edt_e4e4e4">#e4e4e4</color>
+    
+    <color name="shadow_bg_60c000000">#99000000</color>
+    <color name="shadow_primary_24c169bd5">#3f169bd5</color>
+    <color name="shadow_primary_35c000000">#59000000</color>
+    <color name="shadow_slight_20c000000">#33000000</color>
+    
+    <color name="tag_blue_169bd5">#169bd5</color>
+    <color name="tag_green_009966">#009966</color>
+    <color name="tag_red_ff0000">#ff0000</color>
+    <color name="tag_red_85cff3333">#d8ff3333</color>
+    
+    <color name="transparent_0000">#0000</color>
+    <color name="color_black_000000">#000000</color>
+    
+    <color name="rare_detail_bg">#009966</color>
+    <color name="rare_extension_panel_bg">#333366</color>
+    <color name="rare_extension_panel_drag">#99ffffff</color>
+    <color name="rare_facebook_logo_bg">#b20000cc</color>
+    <color name="rare_google_logo_bg">#b2cc0033</color>
+    <color name="rare_group_card_bg">#CC6666</color>
+    <color name="rare_plane_bg">#bf0066ff</color>
+    <color name="rare_twitter_logo_bg">#b20066cc</color>
+    
+</resources>

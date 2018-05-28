@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_social_login_panel"
+    style="@style/general_card"
+    android:layout_width="100dp"
+    android:layout_height="176dp"
+    android:background="@drawable/card_social_login_bg"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+    
+    <Button
+        android:id="@+id/card_social_login_btn_1"
+        style="@style/general_card_btn" />
+    
+    <Button
+        android:id="@+id/card_social_login_btn_2"
+        style="@style/general_card_btn"
+        android:layout_centerInParent="true" />
+    
+    <Button
+        android:id="@+id/card_social_login_btn_3"
+        style="@style/general_card_btn"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/general_card"
+    android:layout_width="100dp"
+    android:layout_height="176dp"
+    android:background="@drawable/card_bg_group"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+    
+    <Button
+        android:tag="button1"
+        android:id="@+id/card_group_btn_1"
+        style="@style/general_card_btn" />
+    
+    <Button
+        android:tag="button2"
+        android:id="@+id/card_group_btn_2"
+        style="@style/general_card_btn"
+        android:layout_centerInParent="true" />
+    
+    <Button
+        android:tag="button3"
+        android:id="@+id/card_group_btn_3"
+        style="@style/general_card_btn"
+        android:layout_alignParentBottom="true" />
+    
+</RelativeLayout>

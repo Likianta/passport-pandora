@@ -1,0 +1,9 @@
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="28dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/tag_red_r14dp"
+    android:elevation="3dp"
+    android:ellipsize="end"
+    android:maxWidth="64dp" />

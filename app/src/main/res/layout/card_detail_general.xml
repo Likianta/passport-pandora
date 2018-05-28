@@ -1,0 +1,7 @@
+<RelativeLayout
+    style="@style/card_detail">
+    
+    <TextView
+        style="@style/detail_text_title" />
+    
+</RelativeLayout>

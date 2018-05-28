@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">Passport&#160;Pandora</string>
+    
+    <!--Android strings 转义字符-->
+    <!--http://blog.qiji.tech/archives/10395-->
+    <string name="test_paragraph_detail_header">Created: 2018-05-01\nUpdated:2018-05-08\n
+        \nYou have 4 accounts under this accountTitle;\nsee them over <u>here</u></string>
+    <string name="test_words_test">test</string>
+    <string name="test_words_amazon">Amazon</string>
+    <string name="test_words_bili">Bilibili</string>
+    <string name="test_words_fb">Facebook</string>
+    <string name="test_words_gg">Google</string>
+    <string name="test_words_gmail">likianta1016@gmail.com</string>
+    <string name="test_words_password">lk123456789</string>
+    <string name="test_words_s">s</string>
+    <string name="test_words_sheerish">sheerish</string>
+    <string name="test_words_tb">Taobao</string>
+    <string name="test_words_tw">Twitter</string>
+    
+    <!--activity login-->
+    <string name="login_btn_sign_in">Sign In</string>
+    <string name="login_btn_new_account">New Account</string>
+    <string name="login_btn_show">Show</string>
+    <string name="login_btn_hide">Hide</string>
+    <string name="login_btn_login">Login</string>
+    
+    <string name="login_hint_username">Username</string>
+    <string name="login_hint_password">Password</string>
+    
+    <string name="login_link_forgot_password"><u>Forgot your password?</u></string>
+    
+    <string name="login_text_appname">Passport Pandora</string>
+    <string name="login_text_or">or</string>
+    
+    <!--activity main-->
+    <string name="main_text_header">Do you need a search?</string>
+    
+    <string name="main_btn_plus">+</string>
+    
+    <!--activity edit-->
+    <string name="new_account_btn_save">Save</string>
+    <string name="new_account_btn_random">Random</string>
+    <string name="new_account_btn_note">Note</string>
+    <string name="new_account_btn_add_favor">Add to favor</string>
+    
+    <string name="new_account_text_top_msg">Create a new account…</string>
+    <string name="new_account_text_like_a_tailor_made">Like a tailor-made?</string>
+    
+    <string name="new_account_hint_title">Your account accountTitle</string>
+    <string name="new_account_hint_username">Your username</string>
+    <string name="new_account_hint_password">Your password</string>
+    
+    <!--activity detail-->
+    <string name="detail_text_controls">Controls</string>
+    <string name="detail_text_note">Note &amp; Url</string>
+    <string name="detail_text_social_login">Social Login</string>
+    <string name="detail_hint_note">Tap to record your note.</string>
+    
+    <!--<string name="detail_btn_close">Close</string>-->
+    <string name="detail_btn_delete">Delete</string>
+    <string name="detail_btn_edit">Edit</string>
+    <string name="detail_btn_less">Overview</string>
+    <string name="detail_btn_more">More Details</string>
+    <string name="detail_btn_star">Star</string>
+    <string name="detail_btn_unstar">Unstar</string>
+    
+    <string-array name="detail_btn_bottoms">
+        <item>More Details</item>
+        <item>Overview</item>
+    </string-array>
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    <!--group_item button-->
+    <string name="item_btn_copy">Copy</string>
+    <string name="item_btn_copied">Copied</string>
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    <!--groupName name-->
+    <string name="group_recently_added">Recently Added</string>
+    <string name="group_no_group">No Group</string>
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    <!--card values-->
+    <string name="card_btn_done">Done</string>
+    <string name="card_btn_email">Email</string>
+    <string name="card_btn_facebook">Facebook</string>
+    <string name="card_btn_google">Google</string>
+    <string name="card_btn_phone">Phone</string>
+    <string name="card_btn_qq">QQ</string>
+    <string name="card_btn_twitter">Twitter</string>
+    <string name="card_btn_weibo">Weibo</string>
+    <string name="card_btn_wechat">Wechat</string>
+    
+    <string name="card_text_memo">Memo</string>
+
+
+</resources>

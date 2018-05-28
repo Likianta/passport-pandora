@@ -1,0 +1,29 @@
+package com.likianta.passportpandora.methods;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.likianta.passportpandora.R;
+import com.likianta.passportpandora.beans.GroupItem;
+
+import java.util.List;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/15 0015.
+ */
+// TODO DELETE
+public class GroupDataAdapter extends BaseQuickAdapter<GroupItem, BaseViewHolder> {
+    // the first argument is status entity
+    // the second is a expanded ViewHolder
+    
+    public GroupDataAdapter(List<GroupItem> itemList) {
+        super(R.layout.group_item, itemList);
+    }
+    
+    @Override
+    protected void convert(BaseViewHolder holder, GroupItem item) {
+        holder.setText(R.id.item_title, item.getAccountTitle())
+                .setText(R.id.item_username, item.getUsername());
+    }
+    
+    
+}

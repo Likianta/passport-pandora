@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_accent_ffffff"
+    android:elevation="24dp"
+    tools:ignore="HardcodedText,LabelFor,TextFields">
+    
+    <Space
+        android:id="@+id/stub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+    
+    <TextView
+        android:id="@+id/group_btn_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignEnd="@id/stub"
+        android:gravity="center"
+        android:text="groupName" />
+    
+    <TextView
+        android:id="@+id/group_btn_tag"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@id/stub"
+        android:gravity="center"
+        android:text="tag" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/group_recycler_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/group_edt_group"
+        android:layout_alignEnd="@id/stub"
+        android:layout_below="@id/group_btn_group" />
+    
+    <android.support.v7.widget.RecyclerView
+        
+        android:id="@+id/group_recycler_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/group_recycler_group"
+        android:layout_alignStart="@id/stub"
+        android:layout_below="@id/group_btn_group" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <EditText
+        android:id="@+id/group_edt_group"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/group_btn_add_0" />
+    
+    <Button
+        android:id="@+id/group_btn_add_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/stub"
+        android:layout_alignParentBottom="true"
+        android:text="add" />
+    
+    <EditText
+        android:id="@+id/group_edt_tag"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@id/stub"
+        android:layout_toStartOf="@id/group_btn_add_1" />
+    
+    <Button
+        android:id="@+id/group_btn_add_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="add" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <Button
+        android:id="@+id/group_btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/group_btn_add_1"
+        android:layout_alignParentEnd="true"
+        android:text="confirm" />
+
+
+</RelativeLayout>

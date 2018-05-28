@@ -1,0 +1,162 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/detail_bg"
+        android:divider="@drawable/spacer_20dp"
+        android:orientation="vertical"
+        android:showDividers="middle|end">
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:gravity="start|bottom"
+            android:text="@string/test_paragraph_detail_header"
+            android:textColor="@color/text_light_ffffff"
+            android:textSize="14sp" />
+        
+        <!--<include
+            
+            layout="@layout/card_detail_general" />-->
+        
+        <LinearLayout style="@style/card_detail">
+            
+            <TextView
+                android:id="@+id/detail_account_title"
+                style="@style/detail_text_title"
+                android:text="@string/test_words_gg"
+                android:transitionName="sharedAccountTitle" />
+            
+            <TextView
+                android:id="@+id/detail_account_username"
+                style="@style/detail_text_account"
+                android:text="@string/test_words_gmail"
+                android:transitionName="sharedAccountUsername" />
+            
+            <TextView
+                android:id="@+id/detail_account_password"
+                style="@style/detail_text_account"
+                android:text="@string/test_words_password" />
+        
+        </LinearLayout>
+        
+        <LinearLayout style="@style/card_detail">
+            
+            <TextView
+                android:id="@+id/detail_title_sociallogin"
+                style="@style/detail_text_title"
+                android:text="@string/detail_text_social_login" />
+            
+            
+            
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+            
+            </GridLayout>
+        
+        </LinearLayout>
+        
+        <LinearLayout style="@style/card_detail">
+            
+            <TextView
+                android:id="@+id/detail_title_control"
+                style="@style/detail_text_title"
+                android:text="@string/detail_text_controls" />
+            
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+                
+                <include
+                    layout="@layout/cell_detail_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+            
+            </GridLayout>
+        
+        </LinearLayout>
+        
+        <RelativeLayout style="@style/card_detail">
+            
+            <TextView
+                android:id="@+id/detail_note"
+                style="@style/detail_text_title"
+                android:text="@string/detail_text_note" />
+        
+        </RelativeLayout>
+    
+    
+    </LinearLayout>
+</ScrollView>

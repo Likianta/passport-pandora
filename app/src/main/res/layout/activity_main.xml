@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary_f2f2f2"
+    tools:ignore="ContentDescription">
+    
+    <!--Top Widgets-->
+    
+    <ImageView
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/bg_accent_ffffff" />
+    
+    <TextView
+        android:id="@+id/accountTitle"
+        style="@style/main_text_heading"
+        android:layout_alignBottom="@+id/header_bg"
+        android:text="@string/main_text_header" />
+    
+    <ImageView
+        android:id="@+id/main_btn_plus"
+        style="@style/main_btn_oval"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="3dp"
+        android:paddingRight="3dp"
+        android:src="@drawable/main_ic_plus_24dp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <!--Bottom cellMainNavigation Bar-->
+    
+    <LinearLayout
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_accent_ffffff"
+        android:divider="@drawable/main_divider"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:showDividers="end|beginning|middle">
+        
+        <include layout="@layout/cell_main_bottom_btn" />
+        
+        <include layout="@layout/cell_main_bottom_btn" />
+        
+        <include layout="@layout/cell_main_bottom_btn" />
+        
+        <include layout="@layout/cell_main_bottom_btn" />
+        
+        <include layout="@layout/cell_main_bottom_btn" />
+    </LinearLayout>
+    
+    
+    <!--Main List-->
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav_bar"
+        android:layout_below="@+id/header_bg" />
+    
+    <!--Additional Decorations-->
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/header_bg"
+        android:background="@drawable/main_header_shadow" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <include
+        android:id="@+id/main_layer_cover"
+        layout="@layout/cell_cover" />
+    
+    <fragment
+        android:id="@+id/main_frag_detail"
+        android:name="com.likianta.passportpandora.frag.DetailFragment"
+        android:layout_width="320dp"
+        android:layout_height="335dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+    
+    <!--<include
+        android:id="@+id/main_frag_detail"
+        layout="@layout/frag_detail"
+        android:visibility="gone" />-->
+    
+    <ImageView
+        android:id="@+id/main_btn_test"
+        style="@style/main_btn_oval"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp" />
+
+
+</RelativeLayout>

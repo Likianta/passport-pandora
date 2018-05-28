@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="74dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="-6dp"
+    android:background="@drawable/item_bg">
+    <!--expected size=320x54 ,drawable size=340x74-->
+    <!--shadow_primary_24c169bd5, x=1, y=3, blur=12-->
+    
+    <TextView
+        android:id="@+id/item_title"
+        style="@style/item_text_title" />
+    
+    <TextView
+        android:id="@+id/item_username"
+        style="@style/item_text_username"
+        android:layout_toEndOf="@id/item_title" />
+    
+    <TextView
+        android:id="@+id/item_copy"
+        style="@style/item_btn_copy" />
+</RelativeLayout>

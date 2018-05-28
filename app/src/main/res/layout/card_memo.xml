@@ -1,0 +1,7 @@
+<!--expected size = 320x280, drawable size = 358x318--><!--shadow_primary_35c000000, x=0, y=8, blur=24-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_text"
+    android:layout_width="100dp"
+    android:layout_height="176dp"
+    tools:ignore="LabelFor" />

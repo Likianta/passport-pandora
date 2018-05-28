@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_detail"
+    android:layout_centerHorizontal="true"
+    tools:ignore="ContentDescription,RtlSymmetry">
+    
+    <ImageButton
+        android:id="@+id/detail_btn_plane"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/detail_btn_plane"
+        android:elevation="12dp"
+        android:paddingEnd="3dp"
+        android:src="@drawable/ic_plane_30dp" />
+    
+    <TextView
+        android:id="@+id/detail_username"
+        style="@style/detail_text_primary"
+        android:layout_toStartOf="@id/detail_btn_plane"
+        android:paddingTop="13dp"
+        android:text="@string/test_words_sheerish" />
+    
+    <TextView
+        android:id="@+id/detail_password"
+        style="@style/detail_text_primary"
+        android:layout_toStartOf="@id/detail_btn_plane"
+        android:gravity="start|bottom"
+        android:paddingBottom="13dp"
+        android:text="@string/test_words_gmail" />
+    
+    <EditText
+        android:id="@+id/detail_note"
+        style="@style/detail_text_note"
+        android:layout_above="@id/detail_btn_star"
+        android:layout_below="@id/detail_password"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        tools:ignore="LabelFor" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <Button
+        android:id="@+id/detail_btn_star"
+        style="@style/detail_tag"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/tag_blue_r14dp"
+        android:text="@string/detail_btn_star" />
+    
+    <Button
+        android:id="@+id/detail_btn_delete"
+        style="@style/detail_tag"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/detail_btn_delete"
+        android:textColor="@color/tag_red_ff0000" />
+    
+    <Button
+        android:id="@+id/detail_btn_edit"
+        style="@style/detail_tag"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/tag_green_r14dp"
+        android:text="@string/detail_btn_edit" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:background="@color/text_divider_f2f2f2" />
+    
+    <Button
+        android:id="@+id/detail_btn_bottom"
+        style="@style/detail_btn"
+        android:text="@string/detail_btn_more" />
+    
+    <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+    <!--cover-->
+    
+    <include
+        android:id="@+id/detail_layer_cover"
+        layout="@layout/cell_frag_cover" />
+
+</RelativeLayout>

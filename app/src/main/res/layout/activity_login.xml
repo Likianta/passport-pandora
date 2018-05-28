@@ -1,0 +1,152 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary_f2f2f2"
+    android:fillViewport="true"
+    android:padding="30dp"
+    tools:ignore="ContentDescription">
+    
+    <!--Title-->
+    <TextView
+        android:id="@+id/accountTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:text="@string/login_text_appname"
+        android:textColor="@color/text_heading_333333"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    
+    <!--Background-->
+    
+    <ImageView
+        android:id="@+id/login_bg"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@id/accountTitle"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/login_bg_accent" />
+    
+    <!--Primary Elements-->
+    
+    <TextView
+        android:id="@+id/btn_sign_in"
+        style="@style/login_text_button"
+        android:layout_alignStart="@id/login_bg"
+        android:layout_alignTop="@id/login_bg"
+        android:background="@drawable/login_btn_activated"
+        android:text="@string/login_btn_sign_in" />
+    
+    <TextView
+        android:id="@+id/btn_sign_up"
+        style="@style/login_text_button"
+        android:layout_alignEnd="@id/login_bg"
+        android:layout_alignTop="@id/login_bg"
+        android:background="@drawable/login_btn_deactivated"
+        android:text="@string/login_btn_new_account"
+        android:textColor="@color/text_deactivated_999999" />
+    
+    <EditText
+        android:id="@+id/edit_sign_in"
+        style="@style/login_edt"
+        android:layout_below="@id/btn_sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:hint="@string/login_hint_username"
+        android:inputType="text" />
+    
+    <EditText
+        android:id="@+id/edit_sign_up"
+        style="@style/login_edt"
+        android:layout_below="@id/edit_sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:hint="@string/login_hint_password"
+        android:inputType="textPassword"
+        android:paddingEnd="50dp"
+        tools:ignore="RtlSymmetry" />
+    
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/btn_primary"
+        android:layout_alignBottom="@id/login_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/login_btn_login" />
+    
+    <!--Secondary Elements-->
+    <!--How to set an underline? http://www.cnblogs.com/popfisher/p/5191242.html-->
+    <!--下划线是在strings中用<u>定义的。虽然在预览窗口看不到下划线，但是在实机运行时是有的-->
+    <TextView
+        style="@style/general_text_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_bg"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_link_forgot_password" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/login_bg_divider" />
+    
+    <!--fixme
+    <TextView
+        style="@style/general_text_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@color/bg_primary_f2f2f2"
+        android:padding="5dp"
+        android:text="@string/login_text_or" />-->
+    
+    <!--todo: test-->
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/btn_social_login_facebook"
+        android:gravity="center"
+        android:text="FB"
+        android:textColor="@color/text_light_ffffff"
+        tools:ignore="HardcodedText" />
+    
+    <!--todo: test-->
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_social_login_twitter"
+        android:gravity="center"
+        android:text="TW"
+        android:textColor="@color/text_light_ffffff"
+        tools:ignore="HardcodedText" />
+    
+    <!--todo: test-->
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/btn_social_login_google"
+        android:gravity="center"
+        android:text="G+"
+        android:textColor="@color/text_light_ffffff"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

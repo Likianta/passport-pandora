@@ -1,0 +1,88 @@
+package com.likianta.passportpandora.beans;
+
+import com.likianta.passportpandora.beans.Account;
+import com.likianta.passportpandora.utils.UUIDGenerator;
+
+/**
+ * Created by Likianta_Dodoora on 2018/5/1 0001.
+ */
+public class GroupItem {
+    
+    
+    private String uid;
+    private String accountTitle;
+    private String username;
+    
+    public GroupItem(String accountTitle, String username) {
+        this.uid = UUIDGenerator.getUUID();
+        this.accountTitle = accountTitle;
+        this.username = username;
+    }
+    
+    public GroupItem(Account account) {
+        this.uid = account.getUid();
+        this.accountTitle = account.getPrimary().getTitle();
+        this.username = account.getPrimary().getUsername();
+    }
+    
+    // ��������������������������������������������������������������������������������������������������������������������������������
+    // Getter and setter
+    
+    public String getUid() {
+        return uid;
+    }
+    
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+    
+    public String getTitle() {
+        return accountTitle;
+    }
+    
+    public void setTitle(String accountTitle) {
+        this.accountTitle = accountTitle;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
+    // ��������������������������������������������������������������������������������������������������������������������������������
+    // Set����ȥ��
+    
+    /*
+     * # Set����ȥ��
+     * https://blog.csdn.net/miqi770/article/details/8998517
+     *
+     * Set�������String���ͺ�8������������͹��˵��ظ����ݣ�
+     * �����ŵ����������Ͷ�������Ҫ��дhashCode������equals������
+     * ��equals�Ƚ����ʱ�����ȥ�Ƚ�hashCodeֵ��
+     * hashCode��ֵ���һ�µĻ����򲻻���Set
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (obj instanceof GroupItem) {
+            GroupItem item = (GroupItem) obj;
+            // �Ƚ�accountTitle��username, һ��ʱ�ŷ���true; ֮����ȥ�Ƚ� hashCode
+            return item.accountTitle.equals(this.accountTitle) && item.username.equals(this.username);
+        }
+        return false;
+    }
+    
+    /**
+     * ��дhashCode()���������ص�hashCode()��һ�����϶�Ϊ��ͬ�Ķ���
+     */
+    @Override
+    public int hashCode() {
+        // ����һ�����е�hashcode
+        return accountTitle.hashCode() * username.hashCode();
+    }
+}

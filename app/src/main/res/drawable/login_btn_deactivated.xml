@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topRightRadius="4dp" />
+    <solid android:color="@color/btn_deactivated_7fd2d8d8" />
+</shape>
